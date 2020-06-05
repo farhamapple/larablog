@@ -19,16 +19,16 @@ Category
                 <h4>Form Tambah Kategori</h4>
               </div>
               <div class="card-body">
+                  @if(count($errors)>0)
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}
+                    @endforeach
+                  @endif
                 <form action="{{ route('category.store') }}" method="POST" >
                     @csrf
                     <div class="form-group">
                     <label>Nama Kategori</label>
                     <input type="text" name='name' class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Slug</label>
-                        <input type="text" name='slug' class="form-control">
                     </div>
                     <hr>
                     <div class="card-footer">
